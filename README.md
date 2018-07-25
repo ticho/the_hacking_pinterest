@@ -1,24 +1,44 @@
-# README
+# The Hacking Pinterest
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Gems and Libraries
+- `ActiveRecord` library to manipulate an sqlite3 database, it comes along with Rails.
+- `Faker` gem to populate our database with names, strings and paragraphs.
 
-* Ruby version
+## What we did
+Use the Rails generate command to generate the classes and migrations for User, Article and Category.
+```sh
+$ rails generate model User
+```
+We then filled the migration and class files.
 
-* System dependencies
+## Start the project
+```sh
+$ bundle install
+```
 
-* Configuration
+Seed the database with Faker names from the file `db/seeds.rb` created during  the exercise
+```sh
+$ rails db:seed
+```
 
-* Database creation
+In case you need to reset the db (drop + create + migrate + seed)
+```sh
+$ rails db:reset
+```
 
-* Database initialization
+## General architecture
+We have 3 tables in this project:
+- users :
+  - name
+- pins :
+  - url
+  - user_id
+- comments :
+  - body
+  - user_id
+  - pin_id
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### To visualize the DB
+I used `DB Browser for sqlite3`
